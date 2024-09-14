@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# LLM Comparison Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/user-attachments/assets/708e0293-ffb7-449e-b4ce-36090c4d7b7c)
 
-Currently, two official plugins are available:
+<details>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<summary>レスポンスが返ってきた時</summary>
 
-## Expanding the ESLint configuration
+![localhost_5173_ (1)](https://github.com/user-attachments/assets/a1e54eca-05c5-43d8-995a-ad5e632b4fd7)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</details>
 
-- Configure the top-level `parserOptions` property like this:
+## デモアプリ URL
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+非公開（将来的には...）
+
+## 概要
+
+各種生成 AI へ質問を投げて出力される文章を比較するツールです。
+
+## 対応モデル
+
+- gpt-4o-mini
+- gemini-1.5-flash
+- Claude 3.5 Sonnet
+- plamo
+
+## 使用技術
+
+- React 18.3.1
+- TypeScript 5.5.3
+- vite 5.4.1
+- shadcn
+
+## セットアップ
+
+`src/model.json` に自身のもつ API キーを設定してください。
+
+### 例
+
+URL、API キー、アクセスキー、シークレットキーは置換が必要です。
+空文字が設定されている項目はそのままで問題ないです。
+
+<details>
+
+<summary>src/model.json</summary>
+
+```json
+{
+  "gpt-4o-mini": {
+    "url": "https://api.openai.com/v1/chat/completions",
+    "model": "gpt-4o-mini",
+    "apiKey": "APIキー",
+    "accessKey": "",
+    "secretKey": ""
   },
-})
+  "plamo": {
+    "url": "https://platform.preferredai.jp/api/completion/v1/chat/completions",
+    "model": "plamo-beta",
+    "apiKey": "APIキー",
+    "accessKey": "",
+    "secretKey": ""
+  },
+  "gemini-1.5-flash": {
+    "url": "URL",
+    "model": "",
+    "apiKey": "APIキー",
+    "accessKey": "",
+    "secretKey": ""
+  },
+  "Claude 3.5 Sonnet": {
+    "url": "URL",
+    "model": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+    "apiKey": "",
+    "accessKey": "アクセスキー",
+    "secretKey": "シークレットキー"
+  }
+}
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+</details>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 実行
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+npm run dev
 ```
