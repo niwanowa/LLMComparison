@@ -1,12 +1,12 @@
 # LLM Comparison Tool
 
-![image](https://github.com/user-attachments/assets/708e0293-ffb7-449e-b4ce-36090c4d7b7c)
+<img src="https://github.com/user-attachments/assets/708e0293-ffb7-449e-b4ce-36090c4d7b7c" alt="image" width="300px" />
 
 <details>
 
 <summary>レスポンスが返ってきた時</summary>
 
-![localhost_5173_ (1)](https://github.com/user-attachments/assets/a1e54eca-05c5-43d8-995a-ad5e632b4fd7)
+<img src="https://github.com/user-attachments/assets/a1e54eca-05c5-43d8-995a-ad5e632b4fd7" alt="localhost_5173_ (1)" width="300px" />
 
 </details>
 
